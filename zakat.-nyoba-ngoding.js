@@ -1,7 +1,6 @@
 document.getElementById("zakatForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
-  // --- Ambil data dari input ---
   const harta = parseFloat(document.getElementById("harta").value);
   const hutang = parseFloat(document.getElementById("hutang").value);
   const hargaEmas = parseFloat(document.getElementById("hargaEmas").value);
@@ -12,9 +11,8 @@ document.getElementById("zakatForm").addEventListener("submit", function (e) {
     return;
   }
 
-  // --- Perhitungan zakat ---
   const totalBersih = harta - hutang;
-  const nisab = 85 * hargaEmas; // Nisab = 85 gram emas
+  const nisab = 85 * hargaEmas; 
   let zakat = 0;
   let hasilText = "";
 
@@ -46,7 +44,6 @@ document.getElementById("zakatForm").addEventListener("submit", function (e) {
     `;
   }
 
-  // --- Tambahkan hadis ---
   hasilText += `
     <div class="hadist-box" style="margin-top:15px; background:#fff; padding:10px; border-radius:8px;">
       <h3>📜 Hadis Tentang Zakat</h3>
@@ -64,7 +61,6 @@ document.getElementById("zakatForm").addEventListener("submit", function (e) {
     </div>
   `;
 
-  // --- Tambahkan penjelasan hukum logika ---
   hasilText += `
     <div class="logika" style="margin-top:15px; background:#f5f5f5; padding:10px; border-radius:8px;">
       <p>
@@ -79,15 +75,14 @@ document.getElementById("zakatForm").addEventListener("submit", function (e) {
     </div>
   `;
 
-  // --- Tampilkan hasil di halaman ---
   const hasilEl = document.getElementById("hasil");
   hasilEl.innerHTML = hasilText;
 
-  // --- Trigger ulang animasi setiap kali tombol ditekan ---
   const tableEl = hasilEl.querySelector(".animated-table");
   if (tableEl) {
     tableEl.classList.remove("slide-in");
-    void tableEl.offsetWidth; // paksa reflow
+    void tableEl.offsetWidth;
     tableEl.classList.add("slide-in");
   }
 });
+
