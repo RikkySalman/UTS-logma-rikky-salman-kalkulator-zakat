@@ -1,3 +1,25 @@
+const menuButton = document.getElementById("menuButton");
+const menu = document.getElementById("menu");
+
+menuButton.addEventListener("click", () => {
+  menu.hidden = !menu.hidden;
+});
+
+menu.querySelectorAll("li").forEach(item => {
+  item.addEventListener("click", () => {
+    const pilihan = item.textContent.trim();
+    menu.hidden = true; 
+
+    if (pilihan === "Emas") {
+      alert("Anda memilih zakat emas 💰");
+    } else if (pilihan === "PERTANIAN") {
+      alert("Anda memilih zakat pertanian 🌾");
+    } else if (pilihan === "PENGHASILAN") {
+      alert("Anda memilih zakat penghasilan 💼");
+    }
+  });
+});
+
 document.getElementById("zakatForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -105,3 +127,5 @@ document.getElementById("zakatForm").addEventListener("submit", function (e) {
     tableEl.classList.add("slide-in");
   }
 });
+
+
